@@ -18,7 +18,7 @@ class Acompanhamento(models.Model):
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, related_name='acompanhamentos')
     ano = models.IntegerField()
     periodo = models.IntegerField()
-    observacoes = models.TextField(blank=True)
+    rendimento = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
         return f"{self.aluno.nome} - {self.ano}/{self.semestre}"
