@@ -2,9 +2,8 @@ from django.db import models
 
 class Aluno(models.Model):
     nome = models.CharField(max_length=100)
-    telefome = models.CharField(max_length=20)
-    #cpf = models.CharField(max_length=14)
-    cpf = models.CharField(max_length=14, unique=True) #restrição para garantir cpf com valores únicos. Dado por outra IA
+    telefone = models.CharField(max_length=20)
+    cpf = models.CharField(max_length=14, unique=True)
     email = models.EmailField()
     universidade = models.CharField(max_length=100)
     curso = models.CharField(max_length=50)
@@ -14,4 +13,12 @@ class Aluno(models.Model):
 
     def __str__(self):
         return self.nome
-    
+
+class Acompanhamento(models.Model):
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE, related_name='acompanhamentos')
+    ano = models.IntegerField()
+    periodo = models.IntegerField()
+    observacoes = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"{self.aluno.nome} - {self.ano}/{self.semestre}"
