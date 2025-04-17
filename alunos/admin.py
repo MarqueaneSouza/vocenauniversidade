@@ -20,5 +20,3 @@ class AcompanhamentoAdmin(admin.ModelAdmin):
     list_display = ('aluno', 'ano', 'periodo', 'rendimento')
     search_fields = ('aluno_nome',)
     list_filter = ('ano', 'periodo')
-
-    #parei   4. Criar o template: templates/aluno/painel.html
