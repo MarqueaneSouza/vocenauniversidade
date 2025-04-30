@@ -1,8 +1,8 @@
 from django.shortcuts import render
+from .models import Aluno
 
-from alunos.models import Aluno, Acompanhamento
+def lista_alunos(request):
+    alunos = Aluno.objects.all().order_by('nome')
+    return render(request, 'alunos/lista_alunos.html', {'alunos': alunos})
 
-def painel_acompanhamento(request):
-    acompanhamentos = Acompanhamento.objects.select_related('aluno').all()
-    return render(request, 'alunos/painel.html', {'acompanhamentos': acompanhamentos})
     
