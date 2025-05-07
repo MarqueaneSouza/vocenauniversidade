@@ -11,9 +11,11 @@ class AlunoAdmin(admin.ModelAdmin):
         'email',
         'universidade',
         'curso',
-        'data_admissao',
-        'previsao_formatura',
+        'admissao_formatada',
+        'formatura_formatada',
     )
+
+
 
 @admin.register(Acompanhamento)
 class AcompanhamentoAdmin(admin.ModelAdmin):
